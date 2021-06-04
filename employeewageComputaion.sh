@@ -56,5 +56,6 @@ fi
 ((day++))
 done
 
-echo "Days = $day"
-echo "Hours = $totalHrs "
+totalWagesofmonth=$(($(calculateWage $totalEmployeeHours)))
+echo "Daily wages:${dailyWage[@]}"
+echo "Total wages:" $totalWagesofmonth 
