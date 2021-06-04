@@ -13,3 +13,10 @@ isPart=1
 isFull=2
 day=0
 totalHrs=0
+
+function wageHrs(){
+local hrs=0
+if [[ $attendance -eq 0 ]];
+then
+hrs=$(( $1+0 ))
+echo $hrs
