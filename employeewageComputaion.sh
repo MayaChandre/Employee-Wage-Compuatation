@@ -20,3 +20,24 @@ if [[ $attendance -eq 0 ]];
 then
 hrs=$(( $1+0 ))
 echo $hrs
+
+function wageHrs(){
+local hrs=0
+if [[ $attendance -eq 0 ]];
+then
+hrs=$(( $1+0 ))
+echo $hrs
+elif [[ $attendance -eq  1 ]];
+then
+hrs=$(( $1+partHr ))
+echo $hrs
+elif [[ $attendance -eq  2 ]];
+then
+hrs=$(( $1+$fullHr ))
+echo $hrs
+fi
+}
+
+while [[ $day -lt 20 ]];
+do
+attendance =$((RANDOM%3))
