@@ -20,13 +20,6 @@ if [[ $attendance -eq 0 ]];
 then
 hrs=$(( $1+0 ))
 echo $hrs
-
-function wageHrs(){
-local hrs=0
-if [[ $attendance -eq 0 ]];
-then
-hrs=$(( $1+0 ))
-echo $hrs
 elif [[ $attendance -eq  1 ]];
 then
 hrs=$(( $1+partHr ))
@@ -40,4 +33,19 @@ fi
 
 while [[ $day -lt 20 ]];
 do
+
 attendance =$((RANDOM%3))
+case  $attendance in
+0) wage=$(($wage+0))
+dailywage=0
+;;
+1)wage=$(( $wage+ ($wagePerHr*$partHr) ))
+dailywage=$(($wagePerHr*$partHr))
+;;
+3)wage=$(( $wage+ ($wagePerHr*$fullHr) ))
+dailywage=$(($wagePerHr*$fullHr))
+;;
+*) echo "Attendance Error"
+esac
+arr["Day "$day]=$dailwage
+totalHrs='wageHrs $totalHrs'
