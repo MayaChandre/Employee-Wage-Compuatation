@@ -49,3 +49,12 @@ dailywage=$(($wagePerHr*$fullHr))
 esac
 arr["Day "$day]=$dailwage
 totalHrs='wageHrs $totalHrs'
+if[[ $totalHrs -eq 100 ]];
+then
+break
+fi
+((day++))
+done
+
+echo "Days = $day"
+echo "Hours = $totalHrs "
